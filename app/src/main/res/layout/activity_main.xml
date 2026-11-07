@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B0F19">
+
+    <!-- Splash Screen (Animation Layout) -->
+    <LinearLayout
+        android:id="@+id/splashLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#0B0F19"
+        android:visibility="visible"
+        android:elevation="10dp">
+
+        <ImageView
+            android:id="@+id/splashIcon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@android:drawable/ic_secure"
+            app:tint="#00BFFF"
+            android:layout_marginBottom="24dp"
+            android:alpha="0"/>
+
+        <TextView
+            android:id="@+id/splashTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="F O C U S"
+            android:textColor="#00BFFF"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:shadowColor="#00BFFF"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="15"
+            android:alpha="0"/>
+    </LinearLayout>
+
+    <!-- Normal Mode (Settings) -->
+    <LinearLayout
+        android:id="@+id/normalModeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:padding="25dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deep Focus"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disconnect to Reconnect"
+            android:textColor="#8A9FAD"
+            android:textSize="16sp"
+            android:layout_marginBottom="30dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#151C2C"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quick Select"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="15dp"/>
+
+                <!-- Changed gravity to center to fix the build error -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp">
+
+                    <Button
+                        android:id="@+id/btn30Min"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30m"
+                        android:textColor="#00BFFF"
+                        app:backgroundTint="#202D40"
+                        app:cornerRadius="16dp"
+                        android:layout_marginEnd="10dp"/>
+
+                    <Button
+                        android:id="@+id/btn1Hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1h"
+                        android:textColor="#00BFFF"
+                        app:backgroundTint="#202D40"
+                        app:cornerRadius="16dp"
+                        android:layout_marginEnd="10dp"/>
+
+                    <Button
+                        android:id="@+id/btn3Hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3h"
+                        android:textColor="#00BFFF"
+                        app:backgroundTint="#202D40"
+                        app:cornerRadius="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="- OR -"
+                    android:textColor="#5C7080"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="15dp"/>
+
+                <Button
+                    android:id="@+id/btnPickTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="🕒 Pick Custom Time"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="#3B82F6"
+                    app:cornerRadius="16dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvSelectedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selected: 0 Min"
+            android:textColor="#FFD166"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/btnStartFocus"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="START FOCUS"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#0B0F19"
+            app:backgroundTint="#00BFFF"
+            app:cornerRadius="32dp" />
+    </LinearLayout>
+
+    <!-- Focus Mode (Locked Screen - Only Timer) -->
+    <LinearLayout
+        android:id="@+id/focusModeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="#000000">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@android:drawable/ic_secure"
+            app:tint="#4A5568"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/tvTimerDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00:00"
+            android:textColor="#00BFFF"
+            android:textSize="70sp"
+            android:textStyle="bold"
+            android:shadowColor="#00BFFF"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="20"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Focus Mode is Active"
+            android:textColor="#4A5568"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+</RelativeLayout>
